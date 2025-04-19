@@ -62,6 +62,8 @@ function App() {
     return '' // Default
   }
 
+  const currentYear = new Date().getFullYear(); // Get current year
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-4 font-sans">
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-6 mt-10">
@@ -204,8 +206,8 @@ function App() {
         )}
         
         {/* Footer */}
-        <div>
-          <p>Powered by OpenWeatherMap API</p>
+        <div className="text-center mt-8 pt-4 border-t border-gray-200">
+          <p className="text-sm text-gray-500">© {currentYear} Powered by OpenWeatherMap API</p>
         </div>
       </div>
     </div>
