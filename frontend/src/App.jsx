@@ -67,7 +67,7 @@ function App() {
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-md p-6 mt-10">
         {/* Header/Title */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2 my-debug-test">
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">
             Weather Explorer
           </h1>
           <p className="text-lg text-gray-600">Get real-time weather information for any location</p>
