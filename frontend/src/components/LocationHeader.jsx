@@ -10,7 +10,7 @@ export default function LocationHeader({ name, weather, updatedAt }) {
   });
 
   return (
-    <div className="bg-white rounded-xl p-5 shadow-lg mb-6 w-full">
+    <div className="bg-white rounded-xl p-5 shadow-lg mb-6 w-full mx-auto border border-gray-200 hover:shadow-xl transition-shadow duration-300">
       <div className="flex justify-between items-center">
         <div className="flex-1">
           <h2 className="text-3xl font-bold text-gray-800">{name}</h2>

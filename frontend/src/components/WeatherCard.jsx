@@ -15,7 +15,7 @@ export default function WeatherCard({ icon, title, value, subtitle, delay = 0 })
     <div 
       className={`bg-white p-4 rounded-xl shadow-md transition-all duration-300 transform 
       ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} 
-      hover:shadow-lg hover:scale-105`}
+      hover:shadow-xl hover:scale-105 mx-auto border border-gray-200`}
     >
       <div className="flex items-center mb-2">
         <span className="text-blue-500 mr-2">
