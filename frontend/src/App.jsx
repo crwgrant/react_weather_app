@@ -44,55 +44,53 @@ function App() {
   }
 
   const getWeatherBackground = () => {
-    if (!weatherData || !weatherData.weather || !weatherData.weather[0]) return 'from-blue-400 to-blue-600'
+    if (!weatherData || !weatherData.weather || !weatherData.weather[0]) return ''
     
     const weatherCode = weatherData.weather[0].icon
     // Day conditions
-    if (weatherCode.includes('01d')) return 'from-yellow-400 to-orange-500' // Clear sky
-    if (weatherCode.includes('02d')) return 'from-blue-300 to-blue-500' // Few clouds
-    if (weatherCode.includes('03d') || weatherCode.includes('04d')) return 'from-blue-400 to-gray-400' // Clouds
-    if (weatherCode.includes('09d') || weatherCode.includes('10d')) return 'from-blue-400 to-gray-600' // Rain
-    if (weatherCode.includes('11d')) return 'from-gray-700 to-gray-900' // Thunderstorm
-    if (weatherCode.includes('13d')) return 'from-blue-100 to-blue-300' // Snow
-    if (weatherCode.includes('50d')) return 'from-gray-300 to-gray-500' // Mist
+    if (weatherCode.includes('01d')) return '' // Clear sky
+    if (weatherCode.includes('02d')) return '' // Few clouds
+    if (weatherCode.includes('03d') || weatherCode.includes('04d')) return '' // Clouds
+    if (weatherCode.includes('09d') || weatherCode.includes('10d')) return '' // Rain
+    if (weatherCode.includes('11d')) return '' // Thunderstorm
+    if (weatherCode.includes('13d')) return '' // Snow
+    if (weatherCode.includes('50d')) return '' // Mist
     
     // Night conditions
-    if (weatherCode.includes('n')) return 'from-blue-900 to-indigo-900'
+    if (weatherCode.includes('n')) return ''
     
-    return 'from-blue-400 to-blue-600' // Default
+    return '' // Default
   }
 
   return (
-    <div className="min-h-screen bg-gray-200 flex flex-col items-center justify-center p-4 md:p-8 lg:p-12">
-      <div className="w-full max-w-4xl mx-auto">
+    <div>
+      <div>
         {/* Header/Title */}
-        <div className="text-center mb-8 motion-safe:animate-fadeIn">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 drop-shadow-sm">
+        <div>
+          <h1>
             Weather Explorer
           </h1>
-          <p className="text-gray-600 mt-2 text-lg">Get real-time weather information for any location</p>
+          <p>Get real-time weather information for any location</p>
         </div>
         
         {/* Search Box */}
-        <div className="bg-white rounded-xl p-5 shadow-lg mb-8 transition-all duration-300 hover:shadow-xl mx-auto w-full border border-gray-200">
-          <form onSubmit={handleSubmit} className="flex flex-row items-center justify-center">
-            <div className="flex-1 relative mr-6 max-w-md">
+        <div>
+          <form onSubmit={handleSubmit}>
+            <div>
               <input
                 type="text"
                 id="zipcode"
                 value={zipcode}
                 onChange={(e) => setZipcode(e.target.value)}
                 placeholder="Enter zip code (e.g. 10001)"
-                className="w-full bg-gray-50 border border-gray-200 text-gray-700 placeholder-gray-400 rounded-lg py-3 px-3 h-10"
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg py-3 px-6 h-10 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center whitespace-nowrap"
             >
               {loading ? (
-                <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full mr-2"></div>
+                <div></div>
               ) : null}
               {loading ? 'Searching...' : 'Get Weather'}
             </button>
@@ -101,9 +99,9 @@ function App() {
         
         {/* Error Message */}
         {error && !loading && (
-          <div className="bg-red-500 text-white px-4 py-3 rounded-xl mb-6 shadow-lg slide-in-top mx-auto">
-            <div className="flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
               </svg>
               <p>{error}</p>
@@ -113,36 +111,36 @@ function App() {
         
         {/* Weather Content */}
         {weatherData && !loading && (
-          <div className="space-y-6 mx-auto w-full">
+          <div>
             {/* Location Header */}
             <LocationHeader name={weatherData.name} weather={weatherData.weather} />
             
             {/* Main Temperature */}
-            <div className="bg-white rounded-xl p-6 shadow-lg text-center mx-auto border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-              <div className="flex flex-col items-center justify-center">
-                <h3 className="text-gray-600 mb-2 text-lg">Current Temperature</h3>
-                <p className="text-6xl font-bold text-gray-800">
+            <div>
+              <div>
+                <h3>Current Temperature</h3>
+                <p>
                   {Math.round(weatherData.main.temp)}°F
                 </p>
-                <p className="text-gray-600 mt-2">
+                <p>
                   Feels like {Math.round(weatherData.main.feels_like)}°F
                 </p>
-                <div className="flex items-center justify-center mt-4 gap-4">
-                  <div className="flex flex-col items-center">
-                    <span className="text-gray-500 text-sm">Min</span>
-                    <span className="text-gray-800 font-bold">{Math.round(weatherData.main.temp_min)}°F</span>
+                <div>
+                  <div>
+                    <span>Min</span>
+                    <span>{Math.round(weatherData.main.temp_min)}°F</span>
                   </div>
-                  <div className="h-8 border-r border-gray-200"></div>
-                  <div className="flex flex-col items-center">
-                    <span className="text-gray-500 text-sm">Max</span>
-                    <span className="text-gray-800 font-bold">{Math.round(weatherData.main.temp_max)}°F</span>
+                  <div></div>
+                  <div>
+                    <span>Max</span>
+                    <span>{Math.round(weatherData.main.temp_max)}°F</span>
                   </div>
                 </div>
               </div>
             </div>
             
             {/* Weather Details Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
+            <div>
               <WeatherCard 
                 icon={<ThermometerIcon />}
                 title="Weather"
@@ -192,11 +190,11 @@ function App() {
         
         {/* Empty State */}
         {isFirstLoad && !loading && !weatherData && !error && (
-          <div className="bg-white rounded-xl p-8 text-center shadow-lg mx-auto w-full border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-            <div className="flex flex-col items-center">
+          <div>
+            <div>
               <CloudIcon />
-              <h3 className="text-xl font-medium text-gray-800 mt-4">Enter a zip code to get started</h3>
-              <p className="text-gray-600 mt-2">
+              <h3>Enter a zip code to get started</h3>
+              <p>
                 Search for any US zip code to see detailed weather information
               </p>
             </div>
@@ -204,7 +202,7 @@ function App() {
         )}
         
         {/* Footer */}
-        <div className="mt-12 text-center text-gray-500 text-sm">
+        <div>
           <p>Powered by OpenWeatherMap API</p>
         </div>
       </div>

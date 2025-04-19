@@ -10,19 +10,19 @@ export default function LocationHeader({ name, weather, updatedAt }) {
   });
 
   return (
-    <div className="bg-white rounded-xl p-5 shadow-lg mb-6 w-full mx-auto border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-      <div className="flex justify-between items-center">
-        <div className="flex-1">
-          <h2 className="text-3xl font-bold text-gray-800">{name}</h2>
-          <div className="flex items-center mt-1">
-            <p className="text-xl capitalize font-medium text-gray-700">
+    <div>
+      <div>
+        <div>
+          <h2>{name}</h2>
+          <div>
+            <p>
               {weather[0].description}
             </p>
           </div>
-          <p className="text-xs text-gray-500 mt-2">Updated at {formattedTime}</p>
+          <p>Updated at {formattedTime}</p>
         </div>
         
-        <div className="flex-shrink-0">
+        <div>
           <WeatherIcon 
             iconCode={weather[0].icon} 
             description={weather[0].description}

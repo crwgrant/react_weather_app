@@ -12,20 +12,16 @@ export default function WeatherCard({ icon, title, value, subtitle, delay = 0 })
   }, [delay]);
   
   return (
-    <div 
-      className={`bg-white p-4 rounded-xl shadow-md transition-all duration-300 transform 
-      ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} 
-      hover:shadow-xl hover:scale-105 mx-auto border border-gray-200`}
-    >
-      <div className="flex items-center mb-2">
-        <span className="text-blue-500 mr-2">
+    <div>
+      <div>
+        <span>
           {icon}
         </span>
-        <h3 className="text-sm text-gray-600 font-medium">{title}</h3>
+        <h3>{title}</h3>
       </div>
-      <p className="text-2xl font-bold text-gray-800">{value}</p>
+      <p>{value}</p>
       {subtitle && (
-        <p className="text-sm text-gray-500 mt-1">{subtitle}</p>
+        <p>{subtitle}</p>
       )}
     </div>
   );
