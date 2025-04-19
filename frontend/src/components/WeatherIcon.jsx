@@ -45,7 +45,7 @@ export default function WeatherIcon({ iconCode, description, size = 'large' }) {
   };
   
   return (
-    <div className="relative flex justify-center items-center">
+    <div>
       <img 
         src={`https://openweathermap.org/img/wn/${iconCode}@4x.png`}
         alt={description || 'Weather icon'}
