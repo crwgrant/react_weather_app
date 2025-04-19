@@ -1,0 +1,25 @@
+{
+    "name": "weather-app",
+    "version": "1.0.0",
+    "description": "Weather application with React frontend and Express backend",
+    "scripts": {
+        "start": "npm run start:backend",
+        "start:backend": "cd backend && npm start",
+        "start:frontend": "cd frontend && npm run dev",
+        "dev": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+        "install:all": "npm install && npm run install:backend && npm run install:frontend",
+        "install:backend": "cd backend && npm install",
+        "install:frontend": "cd frontend && npm install"
+    },
+    "keywords": [
+        "weather",
+        "react",
+        "express",
+        "api"
+    ],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
+}
