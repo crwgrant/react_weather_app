@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { getWeatherByZipcode } from './services/api'
 import { formatUnixTimestamp } from './utils/dateUtils'
 import WeatherCard from './components/WeatherCard'
-import WeatherIcon from './components/WeatherIcon'
 import LocationHeader from './components/LocationHeader'
 import { 
   ThermometerIcon, 
@@ -11,8 +10,7 @@ import {
   DropletIcon, 
   PressureIcon, 
   SunriseIcon, 
-  SunsetIcon,
-  SearchIcon
+  SunsetIcon
 } from './components/Icons'
 
 function App() {
